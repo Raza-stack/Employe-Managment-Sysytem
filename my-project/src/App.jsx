@@ -9,6 +9,18 @@ const App = () => {
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const { userData, setUserData } = useContext(AuthContext);
 
+  // useEffect(() => {
+  //   const loggedInUser = localStorage.getItem('loggedInUser');
+  //   if (loggedInUser) {
+  //     const parsedUser = JSON.parse(loggedInUser);
+  //     setUser(parsedUser.role);
+  //     if (parsedUser.data) {
+  //       setLoggedInUserData(parsedUser.data);
+  //     }
+  //   }
+  // }, []);
+
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (loggedInUser) {
@@ -17,8 +29,11 @@ const App = () => {
       if (parsedUser.data) {
         setLoggedInUserData(parsedUser.data);
       }
+    } else {
+      console.log("No user found in localStorage");
     }
   }, []);
+
 
   const handleLogin = (email, password) => {
     if (email === 'admin@me.com' && password === '123') {

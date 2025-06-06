@@ -24,4 +24,4 @@ const TaskListNumbers = ({data}) => {
   )
 }
 
-export default TaskListNumbers
+export default TaskListNumbers;
